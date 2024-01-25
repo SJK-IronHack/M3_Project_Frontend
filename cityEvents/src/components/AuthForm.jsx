@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
 const AuthForm = ({ isLogin = false }) => {
   const [email, setEmail] = useState("");
