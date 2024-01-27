@@ -5,37 +5,35 @@ import EventCard from './EventCard';
 const API_URL = import.meta.env.VITE_API_URL;
 
 
-function EventListing() {
-    const [events, setEvents] = useState([])
+function EventListing({eventList}) {
+    const [eventList, setEventList] = useState([])
 
-
-
-    axios
-        .get(`${API_URL}/api/events?${queryString}`)
-        .then((response) => {
-            setEvents(response.data)
-        })
-        .catch((error) => {
+    const fetchEvents = async () => {
+        try {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/events`)
+            if (response.ok) {
+                const eventData = await response.json()
+                console.log(eventData);
+                setEventList(eventData)
+            }
+        } catch (error) {
             console.log(error);
-        }, [])
-    const gettAllEvents = () => {
-        axios
-            .get(`${API_URL}/api/events`)
-            .then(response)
+        }
     }
-
+    useEffect(() => {
+        fetchEvents()
+    }, [])
 
     return (
-        <>
-            {events &&
-                events.map(
-                    (event, index) => (
-                        <EventCard
-                            key={event._id}
-                            {...event}
-                        />
-                    ))};
-        </>
+        <div className='EventListing'>
+            {
+                eventList.map((event) => {
+return(
+    <EventCard event={event} key={event.eventId}/>
+)
+                })
+            }
+        </div>
     )
 }
 
