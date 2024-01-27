@@ -5,7 +5,6 @@ import Error404Page from "./pages/Error404Page";
 import AddEventPage from "./pages/AddEventPage";
 import UserProfilePage from "./pages/UserProfilePage";
 import Navbar from "./components/Navbar";
-import EventListing from "./components/EventListing";
 import HomePage from "./pages/HomePage";
 
 function App() {
@@ -13,7 +12,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/" element={<HomePage/>} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/addevent" element={<AddEventPage />} />

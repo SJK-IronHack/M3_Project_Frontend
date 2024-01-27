@@ -3,17 +3,19 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 
 const AuthForm = ({ isLogin = false }) => {
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
   const { saveToken } = useContext(AuthContext);
 
+  const handleUsername = (event) => setUsername(event.target.value);
   const handleEmail = (event) => setEmail(event.target.value);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const reqBody = { email, password };
+    const reqBody = { username, email, password };
 
     try {
       const response = await fetch(
@@ -43,6 +45,17 @@ const AuthForm = ({ isLogin = false }) => {
 
   return (
     <form onSubmit={handleSubmit}>
+      {isLogin ? null : ( // Render the username field only for signup
+        <label>
+          Username
+          <input
+            type="text"
+            required
+            value={username}
+            onChange={handleUsername}
+          />
+        </label>
+      )}
       <label>
         Email
         <input type="email" required value={email} onChange={handleEmail} />
