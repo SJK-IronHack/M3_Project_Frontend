@@ -6,6 +6,7 @@ import AddEventPage from "./pages/AddEventPage";
 import UserProfilePage from "./pages/UserProfilePage";
 import Navbar from "./components/Navbar";
 import EventListing from "./components/EventListing";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Navbar />
       <EventListing/>
       <Routes>
+        <Route path="/" element={<HomePage/>} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/addevent" element={<AddEventPage />} />
