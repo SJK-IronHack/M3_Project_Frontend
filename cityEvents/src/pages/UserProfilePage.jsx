@@ -13,49 +13,49 @@ function UserProfilePage() {
   const { user } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState(undefined);
 
-  useEffect(() => {
-    const getUserProfile = async () => {
-      try {
-        const storedToken = localStorage.getItem("authToken");
+  // useEffect(() => {
+  //   const getUserProfile = async () => {
+  //     try {
+  //       const storedToken = localStorage.getItem("authToken");
 
-        if (storedToken) {
-          const userProfileResponse = await axios.get(
-            `${API_URL}/api/user/${user._id}`,
-            { headers: { Authorization: `Bearer ${storedToken}` } }
-          );
+  //       if (storedToken) {
+  //         const userProfileResponse = await axios.get(
+  //           `${API_URL}/api/user/${user._id}`,
+  //           { headers: { Authorization: `Bearer ${storedToken}` } }
+  //         );
 
-          setUserProfile(userProfileResponse.data);
-        } else {
-          setErrorMessage("User not logged in");
-        }
-      } catch (error) {
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
-      }
-    };
+  //         setUserProfile(userProfileResponse.data);
+  //       } else {
+  //         setErrorMessage("User not logged in");
+  //       }
+  //     } catch (error) {
+  //       const errorDescription = error.response.data.message;
+  //       setErrorMessage(errorDescription);
+  //     }
+  //   };
 
-    const getUserEvents = async () => {
-      try {
-        const storedToken = localStorage.getItem("authToken");
+  //   const getUserEvents = async () => {
+  //     try {
+  //       const storedToken = localStorage.getItem("authToken");
 
-        if (storedToken) {
-          const userEventsResponse = await axios.get(
-            `${API_URL}/api/events/${user._id}`,
-            { headers: { Authorization: `Bearer ${storedToken}` } }
-          );
+  //       if (storedToken) {
+  //         const userEventsResponse = await axios.get(
+  //           `${API_URL}/api/events/${user._id}`,
+  //           { headers: { Authorization: `Bearer ${storedToken}` } }
+  //         );
 
-          setUserEvents(userEventsResponse.data);
-        }
-      } catch (error) {
-        console.error("Error fetching user events:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  //         setUserEvents(userEventsResponse.data);
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching user events:", error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    getUserProfile();
-    getUserEvents();
-  }, [user._id]);
+  //   getUserProfile();
+  //   getUserEvents();
+  // }, [user._id]);
 
   if (errorMessage) return <div>{errorMessage}</div>;
 
