@@ -12,7 +12,6 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <EventListing/>
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/login" element={<LoginPage />} />
