@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Error404Page from "./pages/Error404Page";
 import AddEventPage from "./pages/AddEventPage";
 import UserProfilePage from "./pages/UserProfilePage";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 import EventListing from "./components/EventListing";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/addevent" element={<AddEventPage />} />
-        <Route path="/addevent" element={<UserProfilePage />} />
+        <Route path="/:userId" element={<UserProfilePage />} />
         <Route path="*" element={<Error404Page />} />
       </Routes>
     </div>

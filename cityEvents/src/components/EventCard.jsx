@@ -1,4 +1,6 @@
 import PropTypes from "prop-types";
+
+
 import { Link } from "react-router-dom";
 
 
@@ -30,16 +32,19 @@ const EventCard = ({ event }) => {
   );
 };
 
-// EventCard.propTypes = {
-//   event: PropTypes.shape({
-//     title: PropTypes.string.isRequired,
-//     organiser: PropTypes.string.isRequired,
-//     date: PropTypes.date.isRequired,
-//     location: PropTypes.string.isRequired,
-//     price: PropTypes.string.isRequired,
-//     description: PropTypes.string.isRequired,
-//     image: PropTypes.string.isRequired,
-//   }).isRequired,
-// };
+EventCard.propTypes = {
+  event: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    organiser: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired, // Change to PropTypes.string
+    location: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default EventCard;
+
+
+

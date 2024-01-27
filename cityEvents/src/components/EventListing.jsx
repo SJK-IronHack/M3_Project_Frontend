@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import axios from "axios";
 import EventCard from './EventCard';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-
-function EventListing({eventList}) {
-    const [eventList, setEventList] = useState([])
+function EventListing({ events }) {  // Change the prop name to 'events'
+    const [eventList, setEventList] = useState([]);
 
     const fetchEvents = async () => {
         try {
@@ -20,6 +18,7 @@ function EventListing({eventList}) {
             console.log(error);
         }
     }
+
     useEffect(() => {
         fetchEvents()
     }, [])
@@ -27,11 +26,9 @@ function EventListing({eventList}) {
     return (
         <div className='EventListing'>
             {
-                eventList.map((event) => {
-return(
-    <EventCard event={event} key={event.eventId}/>
-)
-                })
+                eventList.map((event) => (
+                    <EventCard event={event} key={event.eventId} />
+                ))
             }
         </div>
     )
