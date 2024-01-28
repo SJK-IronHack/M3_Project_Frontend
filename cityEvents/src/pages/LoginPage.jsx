@@ -1,13 +1,10 @@
-import AuthForm from "../components/AuthForm";
-
-const LoginPage = () => {
+export default function LoginPage() {
   return (
-    <div>
-      <p>forlogin</p>
-
-      <AuthForm isLogin />
-    </div>
+    <form className="login">
+      <h1>Login</h1>
+      <input type="text" placeholder="username" />
+      <input type="password" placeholder="password" />
+      <button>Login</button>
+    </form>
   );
-};
-
-export default LoginPage;
+}

@@ -1,11 +1,28 @@
-import EventListing from "../components/EventListing";
+import { useEffect, useState } from "react";
+import Header from "../Header";
+import { EventCard } from "../components/EventCard";
+import { fetchEvents } from "../api/fetchEvents";
+import { Box, Grid } from "@mui/material";
 
-function App() {
+export default function HomePage() {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    fetchEvents().then((_events) => setEvents(_events));
+  }, []);
+
   return (
-    <div className="HomePage">
-      <EventListing/>
-    </div>
+    <>
+      <Header />
+      <Box sx={{ paddingX: 8, paddingY: 16 }}>
+        <Grid container spacing={8}>
+          {events.map((event) => (
+            <Grid item key={event._id}>
+              <EventCard event={event} />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    </>
   );
 }
-
-export default App;
