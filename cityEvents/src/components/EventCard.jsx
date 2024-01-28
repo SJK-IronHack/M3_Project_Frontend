@@ -2,6 +2,10 @@ import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
 
+import CommentsModule from "./EventComments";
+
+
+
 const EventCard = ({ event }) => {
   const {
     eventId,
