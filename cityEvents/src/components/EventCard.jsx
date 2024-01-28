@@ -13,6 +13,7 @@ const EventCard = ({ event }) => {
     description,
     image,
   } = event;
+
   return (
     <div className="event-card">
       <Link to={`/${eventId}`}>
@@ -34,6 +35,9 @@ const EventCard = ({ event }) => {
         </p>
         <img src={image} alt="Event" />
       </Link>
+      <div className="event-comments">
+        <CommentsModule/>
+      </div>
     </div>
   );
 };

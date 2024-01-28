@@ -3,7 +3,7 @@ import EventForm from "./AddEventPage";
 const AddEventPage = () => {
   return (
     <div>
-      <EventForm isLogin />
+      <EventForm />
     </div>
   );
 };
