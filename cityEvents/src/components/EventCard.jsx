@@ -11,7 +11,8 @@ import {
 import EditIcon from "@mui/icons-material/Edit";
 
 export const EventCard = ({ event }) => {
-  const { title, organiser, date, location, price, description, image } = event;
+  const { id, title, organiser, date, location, price, description, image } =
+    event;
   return (
     <Card raised sx={{ width: 400 }}>
       <CardMedia
