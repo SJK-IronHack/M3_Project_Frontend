@@ -28,6 +28,9 @@ const AuthForm = ({ isLogin = false }) => {
           body: JSON.stringify(reqBody),
         }
       );
+
+      console.log("Response status:", response.status);
+
       if (response.status === 201) {
         // The user was created successully
         navigate("/login");

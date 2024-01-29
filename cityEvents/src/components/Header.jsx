@@ -7,30 +7,17 @@ export default function Header() {
   return (
     <AppBar>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Box>EVENTER</Box>
+        <Box onClick={() => navigate("/")}>EVENTER</Box>
         <Box sx={{ display: "flex", gap: 8 }}>
-          <Button
-            variant="contained"
-            color="success"
-            onClick={() => navigate("/addevent")}
-          >
+          <Button variant="outlined" onClick={() => navigate("/addevent")}>
             Create Event
           </Button>
-          <Button
-            variant="contained"
-            color="success"
-            onClick={() => navigate("/login")}
-          >
+          <Button variant="outlined" onClick={() => navigate("/login")}>
             Login
           </Button>
-          <Button
-            variant="contained"
-            color="success"
-            onClick={() => navigate("/signup")}
-          >
+          <Button variant="outlined" onClick={() => navigate("/signup")}>
             Signup
           </Button>
- 
         </Box>
       </Toolbar>
     </AppBar>

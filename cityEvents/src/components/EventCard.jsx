@@ -9,9 +9,10 @@ import {
   Box,
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
+import CommentsModule from "./EventComments";
 
 export const EventCard = ({ event }) => {
-  const { id, title, organiser, date, location, price, description, image } =
+  const { _id, title, organiser, date, location, price, description, image } =
     event;
   return (
     <Card raised sx={{ width: 400 }}>
@@ -50,6 +51,7 @@ export const EventCard = ({ event }) => {
         </Button>
         <Button size="small">Learn More</Button>
       </CardActions>
+      <CommentsModule eventId={_id} />
     </Card>
   );
 };

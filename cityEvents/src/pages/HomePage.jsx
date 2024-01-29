@@ -14,7 +14,6 @@ export default function HomePage() {
 
   return (
     <>
-      <Header />
       <EventListing />
       {/*  <Box sx={{ paddingX: 8, paddingY: 16 }}>
         <Grid container spacing={8}>

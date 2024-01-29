@@ -85,6 +85,7 @@ const AuthContextProvider = ({ children }) => {
         fetchWithToken,
         logout,
         userId,
+        token,
       }}
     >
       {children}

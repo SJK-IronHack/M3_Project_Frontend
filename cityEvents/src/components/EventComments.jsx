@@ -1,21 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
+import { AuthContext } from "../contexts/AuthContext";
 
 // Passing Data of the comments to comment component
-import SingleComment from "./SingleComment";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const CommentsModule = ({ eventId }) => {
   const [comments, setComments] = useState([]);
+  const { token } = useContext(AuthContext);
 
   const fetchComments = async () => {
     try {
       const response = await // HOW TO FETCH COMMENST FROM EVENTID URL ????
-      fetch(`${import.meta.env.VITE_API_URL}/api/comments/events/${eventId}`);
+      fetch(`${import.meta.env.VITE_API_URL}/api/comments/events/${eventId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-type": "application/json",
+        },
+      });
       if (response.ok) {
         const commentData = await response.json();
-        console.log(commentData);
+        console.log("here", commentData);
         setComments(commentData);
       }
     } catch (error) {
@@ -26,13 +32,14 @@ const CommentsModule = ({ eventId }) => {
   useEffect(() => {
     fetchComments();
   }, [eventId]);
-
+  {
+    /*  console.log(comments); */
+  }
   return (
     <div className="CommentsListing">
       {comments.map((comment) => (
-        // <SingleComment comment={comment} key={comment.commentId} />
-<p>{comment}</p>
-))}
+        <p key={comment.commentId}>{comment.description}</p>
+      ))}
     </div>
   );
 };
