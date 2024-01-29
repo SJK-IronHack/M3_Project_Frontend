@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Header from "../Header";
+import Header from "../components/Header";
 import { EventCard } from "../components/EventCard";
 import { fetchEvents } from "../api/fetchEvents";
 import { Box, Grid } from "@mui/material";
