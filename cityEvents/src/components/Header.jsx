@@ -9,13 +9,13 @@ export default function Header() {
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         <Box onClick={() => navigate("/")}>EVENTER</Box>
         <Box sx={{ display: "flex", gap: 8 }}>
-          <Button variant="outlined" onClick={() => navigate("/addevent")}>
+          <Button  onClick={() => navigate("/addevent")}>
             Create Event
           </Button>
-          <Button variant="outlined" onClick={() => navigate("/login")}>
+          <Button  onClick={() => navigate("/login")}>
             Login
           </Button>
-          <Button variant="outlined" onClick={() => navigate("/signup")}>
+          <Button  onClick={() => navigate("/signup")}>
             Signup
           </Button>
         </Box>
