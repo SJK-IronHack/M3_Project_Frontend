@@ -7,7 +7,7 @@ export const fetchEvents = () => {
     headers: {
       "Content-Type": "application/json",
       Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWIyNzgwNzE2MGIwZGViZGFiZjNhOWUiLCJpYXQiOjE3MDY0NjQ3MDEsImV4cCI6MTcwNjQ4NjMwMX0.AKuR2hKokacCtxkT-mAGu98wYJ2qVaPYHFZkpWAebx0",
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWIyNzgwNzE2MGIwZGViZGFiZjNhOWUiLCJpYXQiOjE3MDY1NTIyNTcsImV4cCI6MTcwNjU3Mzg1N30.3UT7-bzZebs8wt0R-gjtZSLWTEht57QMiEgbvO4aS8A",
     },
   }).then((response) => response.json());
 };
