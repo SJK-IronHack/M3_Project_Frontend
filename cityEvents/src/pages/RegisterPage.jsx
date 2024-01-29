@@ -2,21 +2,22 @@
 
 import { useState } from "react";
 
-export default function RegisterPage() {
+export default function SignupPage() {
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  async function register(ev) {
+  async function signup(ev) {
     ev.preventDefault();
-    await fetch("http://localhost:5005/register", {
+    await fetch("http://localhost:5005/signup", {
       method: "POST",
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ username, email, password }),
       headers: { "Content-Type": "application/json" },
     });
   }
   return (
-    <form className="register" onSubmit={register}>
-      <h1>Register</h1>
+    <form className="signup" onSubmit={signup}>
+      <h1>Signup</h1>
       <input
         type="text"
         placeholder="username"
@@ -24,12 +25,18 @@ export default function RegisterPage() {
         onChange={(ev) => setUsername(ev.target.value)}
       />
       <input
+        type="text"
+        placeholder="email"
+        value={email}
+        onChange={(ev) => setEmail(ev.target.value)}
+      />
+      <input
         type="password"
         placeholder="password"
         value={password}
         onChange={(ev) => setPassword(ev.target.value)}
       />
-      <button>Register</button>
+      <button>Signup</button>
     </form>
   );
 }
