@@ -16,8 +16,21 @@ export default function Header() {
           >
             Create Event
           </Button>
-          <Typography>Login</Typography>
-          <Typography>Signup</Typography>
+          <Button
+            variant="contained"
+            color="success"
+            onClick={() => navigate("/login")}
+          >
+            Login
+          </Button>
+          <Button
+            variant="contained"
+            color="success"
+            onClick={() => navigate("/signup")}
+          >
+            Signup
+          </Button>
+ 
         </Box>
       </Toolbar>
     </AppBar>

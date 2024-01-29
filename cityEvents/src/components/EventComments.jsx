@@ -12,7 +12,7 @@ const CommentsModule = ({ eventId }) => {
   const fetchComments = async () => {
     try {
       const response = await // HOW TO FETCH COMMENST FROM EVENTID URL ????
-      fetch(`${import.meta.env.VITE_API_URL}/api/events/${eventId}/comments`);
+      fetch(`${import.meta.env.VITE_API_URL}/api/comments/events/${eventId}`);
       if (response.ok) {
         const commentData = await response.json();
         console.log(commentData);
@@ -30,8 +30,9 @@ const CommentsModule = ({ eventId }) => {
   return (
     <div className="CommentsListing">
       {comments.map((comment) => (
-        <SingleComment comment={comment} key={comment.commentId} />
-      ))}
+        // <SingleComment comment={comment} key={comment.commentId} />
+<p>{comment}</p>
+))}
     </div>
   );
 };
