@@ -8,37 +8,29 @@ import CommentsModule from "./EventComments";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-const [comments, setComments ] = useState();
+const [comments, setComments] = useState();
 const fetchEvents = async () => {
-    try {
-        const response = await 
-        // HOW TO FETCH COMMENST FROM EVENTID URL ????
-        fetch(`${import.meta.env.VITE_API_URL}/api/:eventId/comments`)
-        if (response.ok) {
-            const eventData = await response.json()
-            console.log(eventData);
-            setEventList(eventData)
-        }
-    } catch (error) {
-        console.log(error);
+  try {
+    const response = await // HOW TO FETCH COMMENST FROM EVENTID URL ????
+    fetch(`${import.meta.env.VITE_API_URL}/api/comments/events/:eventId/`);
+    if (response.ok) {
+      const eventData = await response.json();
+      console.log(eventData);
+      setEventList(eventData);
     }
-}
-
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 const CommentsModule = ({ comment }) => {
-    const {
-      like,
-      description,
-      createdBy,
-      event,
-    } = comment;
-return (
+  const { like, description, createdBy, event } = comment;
+  return (
     <div className="comments-module">
-        {like} ? <p> Liked </p>
-<p>{description}</p>
+      {like} ? <p> Liked </p>
+      <p>{description}</p>
     </div>
-)
-
-}
+  );
+};
 
 export default CommentsModule;
