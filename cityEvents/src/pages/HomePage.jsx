@@ -3,18 +3,20 @@ import Header from "../components/Header";
 import { EventCard } from "../components/EventCard";
 import { fetchEvents } from "../api/fetchEvents";
 import { Box, Grid } from "@mui/material";
+import EventListing from "../components/EventListing";
 
 export default function HomePage() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetchEvents().then((_events) => setEvents(_events));
+    // fetchEvents().then((_events) => setEvents(_events));
   }, []);
 
   return (
     <>
       <Header />
-      <Box sx={{ paddingX: 8, paddingY: 16 }}>
+      <EventListing />
+      {/*  <Box sx={{ paddingX: 8, paddingY: 16 }}>
         <Grid container spacing={8}>
           {events.map((event) => (
             <Grid item key={event._id}>
@@ -22,7 +24,7 @@ export default function HomePage() {
             </Grid>
           ))}
         </Grid>
-      </Box>
+          </Box>*/}
     </>
   );
 }
