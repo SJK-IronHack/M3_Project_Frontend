@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+
 import {
   Card,
   Image,
@@ -7,6 +8,8 @@ import {
   Container,
   Button,
   Group,
+  useMantineTheme,
+  Pill,
 } from "@mantine/core";
 import CommentsModule from "./EventComments";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +23,13 @@ import editEvent from "../api/editEvent";
 export const EventCard = ({ event, fetchEvents }) => {
   const { _id, title, organiser, date, location, price, description, image } =
     event;
+
+  const theme = useMantineTheme();
+  const cardStyles = {
+    backgroundColor: theme.colors.dark[0],
+    color: theme.colorScheme === "dark" ? theme.white : theme.black,
+  };
+
   const navigate = useNavigate();
   const handleEditClick = () => {
     navigate(`/editevent/${_id}`);
@@ -75,7 +85,16 @@ export const EventCard = ({ event, fetchEvents }) => {
 
   ////
   return (
-    <Card sshadow="sm" padding="lg" radius="md" withBorder width="500">
+    <Card
+      style={cardStyles}
+      color={theme.colors.dark[0]}
+      sshadow="xl"
+      padding="lg"
+      radius="xl"
+      width="500"
+      height="700"
+      shadow="md"
+    >
       <Card.Section>
         <Image
           src="https://picsum.photos/300"
@@ -91,7 +110,7 @@ export const EventCard = ({ event, fetchEvents }) => {
       </Group>
       <Container padding={2}>
         <Group spacing={2} style={{ marginY: 2 }}>
-          <Text>{location}</Text>
+          <Text> Where: {location}</Text>
           <Text>{organiser}</Text>
         </Group>
         <Text>{description}</Text>
