@@ -27,7 +27,7 @@ function EventListing({ events }) {  // Change the prop name to 'events'
         <div className='EventListing'>
             {
                 eventList.map((event) => (
-                    <EventCard event={event} key={event.eventId} />
+                    <EventCard event={event} key={event._eventId} />
                 ))
             }
         </div>
