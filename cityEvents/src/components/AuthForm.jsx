@@ -39,6 +39,9 @@ const AuthForm = ({ isLogin = false }) => {
         // The user was logged in successully
         const parsed = await response.json();
         console.log(parsed);
+        alert("User logged in successfully")
+        navigate("/");
+
         saveToken(parsed.token);
       }
     } catch (error) {

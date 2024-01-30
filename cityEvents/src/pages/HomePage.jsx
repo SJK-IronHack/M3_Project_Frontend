@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <>
       <EventListing />
-      {/*  <Box sx={{ paddingX: 8, paddingY: 16 }}>
+       {/* <Box sx={{ paddingX: 8, paddingY: 16 }}>
         <Grid container spacing={8}>
           {events.map((event) => (
             <Grid item key={event._id}>
@@ -23,7 +23,7 @@ export default function HomePage() {
             </Grid>
           ))}
         </Grid>
-          </Box>*/}
+          </Box> */}
     </>
   );
 }

@@ -20,6 +20,8 @@ const AddEventPage = () => {
   const handleSubmit = (_event) => {
     _event.preventDefault();
     createEvent(event).then(() => navigate("/"));
+    alert("Event added")
+
   };
 
   const handleChange = (field, value) => {
