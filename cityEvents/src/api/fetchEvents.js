@@ -1,7 +1,9 @@
 const api_path = import.meta.env.VITE_API_URL;
 
 export const fetchEvents = () => {
-  return fetch(api_path, {
+  const eventsEndpoint = `${api_path}/api/events`; // Update the endpoint here
+
+  return fetch(eventsEndpoint, {
     method: "GET",
     mode: "cors",
     headers: {

@@ -9,13 +9,13 @@ export default function HomePage() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    // fetchEvents().then((_events) => setEvents(_events));
+    fetchEvents().then((_events) => setEvents(_events));
   }, []);
 
   return (
     <>
       <EventListing />
-       {/* <Box sx={{ paddingX: 8, paddingY: 16 }}>
+      {/* <Box sx={{ paddingX: 8, paddingY: 16 }}>
         <Grid container spacing={8}>
           {events.map((event) => (
             <Grid item key={event._id}>
