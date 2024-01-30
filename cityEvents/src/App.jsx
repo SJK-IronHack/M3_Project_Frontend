@@ -3,20 +3,19 @@ import RegisterPage from "./pages/RegisterPage";
 import { Route, Routes } from "react-router-dom";
 import Error404Page from "./pages/Error404Page";
 import AddEventPage from "./pages/AddEventPage";
+import EditEventPage from "./pages/EditEventPage";
 import UserProfilePage from "./pages/UserProfilePage";
 import HomePage from "./pages/HomePage";
 import "./App.css";
 import Header from "./components/Header";
 import PrivateRoute from "./components/PrivateRoute";
 
-import '@mantine/core/styles.css';
-import { MantineProvider } from '@mantine/core';
+import "@mantine/core/styles.css";
+import { MantineProvider } from "@mantine/core";
 
 // import { createTheme, ThemeProvider, CssBaseline, Button } from "@mui/material";
-import EditEventPage from "./pages/EditEventPage";
 
 function App() {
-
   //STYLES MANTINE
   // const darkTheme = createTheme({
   //   colorScheme: 'dark',
@@ -31,32 +30,30 @@ function App() {
   //   fontFamily: 'Inter, sans-serif',
   // });
 
-
   //
   return (
     <MantineProvider
-    withGlobalStyles
-    withNormalizeCSS
-    theme={{
-      colorScheme: 'dark',
-      colors: {
-        // override dark colors to change them for all components
-        dark: [
-          '#d5d7e0',
-          '#acaebf',
-          '#8c8fa3',
-          '#666980',
-          '#4d4f66',
-          '#34354a',
-          '#2b2c3d',
-          '#1d1e30',
-          '#0c0d21',
-          '#01010a',
-        ],
-      },
-    }}
-  >
-
+      withGlobalStyles
+      withNormalizeCSS
+      theme={{
+        colorScheme: "dark",
+        colors: {
+          // override dark colors to change them for all components
+          dark: [
+            "#d5d7e0",
+            "#acaebf",
+            "#8c8fa3",
+            "#666980",
+            "#4d4f66",
+            "#34354a",
+            "#2b2c3d",
+            "#1d1e30",
+            "#0c0d21",
+            "#01010a",
+          ],
+        },
+      }}
+    >
       <div className="App">
         <Header />
         <Routes>
@@ -68,6 +65,14 @@ function App() {
             element={
               <PrivateRoute>
                 <AddEventPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/editevent/:eventId"
+            element={
+              <PrivateRoute>
+                <EditEventPage />
               </PrivateRoute>
             }
           />

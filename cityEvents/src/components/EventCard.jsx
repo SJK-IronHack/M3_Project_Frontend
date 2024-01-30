@@ -7,17 +7,20 @@ import {
   Container,
   Button,
   Group,
-} from '@mantine/core';
+} from "@mantine/core";
 import CommentsModule from "./EventComments";
 import { useNavigate } from "react-router-dom";
 // const navigate = useNavigate();
 
-
 export const EventCard = ({ event }) => {
   const { _id, title, organiser, date, location, price, description, image } =
     event;
+  const navigate = useNavigate();
+  const handleEditClick = () => {
+    navigate(`/editevent/${_id}`);
+  };
   return (
-    <Card sshadow="sm" padding="lg" radius="md" withBorder width='500'>
+    <Card sshadow="sm" padding="lg" radius="md" withBorder width="500">
       <Card.Section>
         <Image
           src="https://picsum.photos/300"
@@ -27,7 +30,6 @@ export const EventCard = ({ event }) => {
         />
       </Card.Section>
       <Group justify="space-between" mt="md" mb="xs">
-
         <Text order={2}>{title}</Text>
         <Text>{date}</Text>
         <Text>{price}</Text>
@@ -41,7 +43,9 @@ export const EventCard = ({ event }) => {
       </Container>
       <Container padding={2}>
         <Group position="apart">
-          <Button size="sm">  Edit </Button>
+          <Button size="sm" onClick={handleEditClick}>
+            Edit
+          </Button>
           <Button size="sm"> Delete </Button>
         </Group>
       </Container>
@@ -52,7 +56,7 @@ export const EventCard = ({ event }) => {
 
 EventCard.propTypes = {
   event: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     organiser: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired, // Change to PropTypes.string
@@ -62,6 +66,5 @@ EventCard.propTypes = {
     image: PropTypes.string.isRequired,
   }).isRequired,
 };
-
 
 export default EventCard;

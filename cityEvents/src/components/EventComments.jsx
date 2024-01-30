@@ -38,7 +38,7 @@ const CommentsModule = ({ eventId }) => {
   return (
     <div className="CommentsListing">
       {comments.map((comment) => (
-        <p key={comment.commentId}>{comment.description}</p>
+        <p key={comment._id}>{comment.description}</p>
       ))}
     </div>
   );
