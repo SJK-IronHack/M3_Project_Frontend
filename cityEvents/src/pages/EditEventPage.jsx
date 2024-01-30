@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Button } from '@mantine/core';
 import { useNavigate, useParams } from 'react-router-dom';
 import EventForm from '../components/EventForm';
-import { updateEvent, getEventById } from '../api/editEvent';
+// import { updateEvent } from '../api/editEvent';
 
 const EditEventPage = () => {
   const { eventId } = useParams();

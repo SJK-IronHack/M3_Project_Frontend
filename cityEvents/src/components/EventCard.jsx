@@ -10,7 +10,7 @@ import {
 } from '@mantine/core';
 import CommentsModule from "./EventComments";
 import { useNavigate } from "react-router-dom";
-const navigate = useNavigate();
+// const navigate = useNavigate();
 
 
 export const EventCard = ({ event }) => {
@@ -41,7 +41,7 @@ export const EventCard = ({ event }) => {
       </Container>
       <Container padding={2}>
         <Group position="apart">
-          <Button size="sm" onClick={() => navigate(`/editevent/${eventId}`)}>  Edit </Button>
+          <Button size="sm">  Edit </Button>
           <Button size="sm"> Delete </Button>
         </Group>
       </Container>

@@ -12,24 +12,24 @@ import PrivateRoute from "./components/PrivateRoute";
 import '@mantine/core/styles.css';
 import { MantineProvider } from '@mantine/core';
 
-import { createTheme, ThemeProvider, CssBaseline, Button } from "@mui/material";
+// import { createTheme, ThemeProvider, CssBaseline, Button } from "@mui/material";
 import EditEventPage from "./pages/EditEventPage";
 
 function App() {
 
   //STYLES MANTINE
-  const darkTheme = createTheme({
-    colorScheme: 'dark',
-    colors: {
-      'deep-blue': '#263140',
-      'deep-blue-dark': '#394960',
-      'gray-blue': '#334155',
-      'gray-blue-dark': '#2A3646',
-      'gray-blue-light': '#252E3C',
-    },
-    primaryColor: 'deep-blue',
-    fontFamily: 'Inter, sans-serif',
-  });
+  // const darkTheme = createTheme({
+  //   colorScheme: 'dark',
+  //   colors: {
+  //     'deep-blue': '#263140',
+  //     'deep-blue-dark': '#394960',
+  //     'gray-blue': '#334155',
+  //     'gray-blue-dark': '#2A3646',
+  //     'gray-blue-light': '#252E3C',
+  //   },
+  //   primaryColor: 'deep-blue',
+  //   fontFamily: 'Inter, sans-serif',
+  // });
 
 
   //
@@ -50,7 +50,7 @@ function App() {
             }
           />
 
-          <Route path="editevent/:eventId" element={<EditEventPage />} />
+          {/* <Route path="editevent/:eventId" element={<EditEventPage />} /> */}
           <Route path="/:userId" element={<UserProfilePage />} />
           <Route path="*" element={<Error404Page />} />
         </Routes>
