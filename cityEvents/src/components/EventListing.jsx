@@ -40,7 +40,7 @@ function EventListing({ events }) {
     >
       {eventList.map((event) => (
         <Carousel.Slide key={event._id}>
-          <EventCard event={event} />
+          <EventCard event={event} fetchEvents={fetchEvents} />
         </Carousel.Slide>
       ))}
     </Carousel>
