@@ -1,9 +1,11 @@
-import { Col, Input, Textarea, DatePicker, NumberInput } from '@mantine/core';
+import { Input, Textarea, NumberInput } from '@mantine/core';
+import { DatePicker } from '@mantine/dates';
+
 
 const EventForm = ({ handleChange, event }) => {
   return (
     <>
-      <Col span={12}>
+      <div>
         <Input
           id="title"
           name="title"
@@ -12,8 +14,8 @@ const EventForm = ({ handleChange, event }) => {
           onChange={(event) => handleChange('title', event.target.value)}
           required
         />
-      </Col>
-      <Col span={12}>
+      </div>
+      <div>
         <Input
           id="organiser"
           name="organiser"
@@ -21,8 +23,8 @@ const EventForm = ({ handleChange, event }) => {
           value={event.organiser}
           onChange={(event) => handleChange('organiser', event.target.value)}
         />
-      </Col>
-      <Col span={12}>
+      </div>
+      <div>
         <DatePicker
           id="date"
           name="date"
@@ -30,8 +32,8 @@ const EventForm = ({ handleChange, event }) => {
           value={event.date}
           onChange={(date) => handleChange('date', date)}
         />
-      </Col>
-      <Col span={12}>
+      </div>
+      <div>
         <Input
           id="location"
           name="location"
@@ -39,8 +41,8 @@ const EventForm = ({ handleChange, event }) => {
           value={event.location}
           onChange={(event) => handleChange('location', event.target.value)}
         />
-      </Col>
-      <Col span={12}>
+      </div>
+      <div>
         <NumberInput
           id="price"
           name="price"
@@ -48,8 +50,8 @@ const EventForm = ({ handleChange, event }) => {
           value={event.price}
           onChange={(value) => handleChange('price', value)}
         />
-      </Col>
-      <Col span={12}>
+      </div>
+      <div>
         <Textarea
           id="description"
           name="description"
@@ -57,8 +59,8 @@ const EventForm = ({ handleChange, event }) => {
           value={event.description}
           onChange={(event) => handleChange('description', event.target.value)}
         />
-      </Col>
-      <Col span={12}>
+      </div>
+      <div>
         <Input
           id="image"
           name="image"
@@ -66,7 +68,7 @@ const EventForm = ({ handleChange, event }) => {
           value={event.image}
           onChange={(event) => handleChange('image', event.target.value)}
         />
-      </Col>
+      </div>
     </>
   );
 };
