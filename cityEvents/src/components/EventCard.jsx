@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+
 import {
   Card,
   Image,
@@ -7,6 +8,7 @@ import {
   Container,
   Button,
   Group,
+  useMantineTheme,
 } from '@mantine/core';
 import CommentsModule from "./EventComments";
 import { useNavigate } from "react-router-dom";
@@ -15,9 +17,16 @@ import { useNavigate } from "react-router-dom";
 
 export const EventCard = ({ event }) => {
   const { _id, title, organiser, date, location, price, description, image } =
-    event;
+  event;
+  
+  const theme = useMantineTheme();
+    const cardStyles = {
+      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.dark[5],
+      color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+    };
+
   return (
-    <Card sshadow="sm" padding="lg" radius="md" withBorder width='500'>
+    <Card style= {cardStyles} color={theme.colors.dark[4]} sshadow="sm" padding="lg" radius="md" withBorder width='500'>
       <Card.Section>
         <Image
           src="https://picsum.photos/300"

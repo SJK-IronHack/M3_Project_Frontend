@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Carousel } from '@mantine/carousel';
 import EventCard from './EventCard';
-import { useMantineTheme, Button } from '@mantine/core';
 
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 function EventListing({ events }) {
-    const theme = useMantineTheme();
 
     const [eventList, setEventList] = useState([]);
 
@@ -30,8 +28,6 @@ function EventListing({ events }) {
 
     return (
         <Carousel
-        
-
             className='EventListing'
             orientation="horizontal"
             slideSize={{ base: '50%%', sm: '30%', md: '33.333333%' }}

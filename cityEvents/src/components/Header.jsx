@@ -13,8 +13,8 @@ export default function Header() {
 
 
   return (
-    <AppShell shadow="xl" style={headerStyles} >
-      <Container size="xl" style={headerStyles} align="left" display={Flex}>
+    <AppShell shadow="xl" style={headerStyles}>
+      <Container size="xl" style={headerStyles} align="left" display={Flex}  heigh="128">
         <Flex mih={50}
       bg="rgba(0, 0, 0, .3)"
       gap="xs"
