@@ -2,6 +2,9 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 
+import { Input } from '@mantine/core';
+
+
 const AuthForm = ({ isLogin = false }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -54,7 +57,7 @@ const AuthForm = ({ isLogin = false }) => {
       {isLogin ? null : ( // Render the username field only for signup
         <label>
           Username
-          <input
+          <Input
             type="text"
             required
             value={username}
@@ -64,11 +67,14 @@ const AuthForm = ({ isLogin = false }) => {
       )}
       <label>
         Email
-        <input type="email" required value={email} onChange={handleEmail} />
+        <Input 
+        type="email" 
+        required value={email} 
+        onChange={handleEmail} />
       </label>
       <label>
         Password
-        <input
+        <Input
           type="password"
           required
           value={password}

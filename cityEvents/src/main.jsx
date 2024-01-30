@@ -19,18 +19,29 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           colors: {
             // override dark colors to change them for all components
             dark: [
-              '#d5d7e0',
-              '#acaebf',
-              '#8c8fa3',
-              '#666980',
-              '#4d4f66',
-              '#34354a',
-              '#2b2c3d',
-              '#1d1e30',
-              '#0c0d21',
-              '#01010a',
+              '#324154',
+              '#4E6482',
+              '#6783AB',
+              '#7FA2D4',
+              '#7FA2D4',
+              
             ],
+            light: [
+              '#94A3B8',
+              '#A0D1DE',
+              '#A0B0DE',
+
+            ]
           },
+          shadows: {
+            xs: `border-radius: 999999995904px;
+            background: #334155;
+            box-shadow: -2px -2px 2px 0px #222C39, -1px -1px 0px 0px #334155, -2px -2px 2px 0px #2A3646 inset, -1px -1px 0px 0px #252E3C inset;`,
+            xl: `border-radius: 99999997952px;
+            background: #334155;
+            box-shadow: -4px -4px 4px 0px #394960, 4px 4px px 0px #263140;`
+          },
+          
         }}>
     <BrowserRouter>
       <AuthContextProvider>

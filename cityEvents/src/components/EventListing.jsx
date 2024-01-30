@@ -30,7 +30,7 @@ function EventListing({ events }) {
         <Carousel
             className='EventListing'
             orientation="horizontal"
-            slideSize={{ base: '50%%', sm: '30%', md: '33.333333%' }}
+            slideSize={{ base: '70%', sm: '30%', md: '33.333333%' }}
              align="start" slideGap="xs" loop dragFree withControls={false}
         >
             {eventList.map((event) => (

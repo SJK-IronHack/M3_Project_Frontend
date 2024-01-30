@@ -9,6 +9,7 @@ import {
   Button,
   Group,
   useMantineTheme,
+  Pill,
 } from '@mantine/core';
 import CommentsModule from "./EventComments";
 import { useNavigate } from "react-router-dom";
@@ -21,37 +22,38 @@ export const EventCard = ({ event }) => {
   
   const theme = useMantineTheme();
     const cardStyles = {
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.dark[5],
+      backgroundColor: theme.colors.dark[0],
       color: theme.colorScheme === 'dark' ? theme.white : theme.black,
     };
 
   return (
-    <Card style= {cardStyles} color={theme.colors.dark[4]} sshadow="sm" padding="lg" radius="md" withBorder width='500'>
+    <Card style= {cardStyles} color={theme.colors.dark[0]} sshadow="xl" padding="lg" radius="xl"  width='500' height='700' shadow="md">
       <Card.Section>
         <Image
           src="https://picsum.photos/300"
           alt={title}
-          // height={160}
           width={250}
         />
       </Card.Section>
+      <Group  mt="md">
+        <Text order={1} >{title}</Text>
+      </Group>
       <Group justify="space-between" mt="md" mb="xs">
 
-        <Text order={2}>{title}</Text>
-        <Text>{date}</Text>
-        <Text>{price}</Text>
+        <Pill  bg={theme.colors.dark[1]}>When: {date}</Pill>
+        <Pill  bg={theme.colors.dark[1]} color={theme.colors.light[0]}>Price: {price}</Pill>
       </Group>
       <Container padding={2}>
         <Group spacing={2} style={{ marginY: 2 }}>
-          <Text>{location}</Text>
+          <Text> Where: {location}</Text>
           <Text>{organiser}</Text>
         </Group>
         <Text>{description}</Text>
       </Container>
       <Container padding={2}>
         <Group position="apart">
-          <Button size="sm">  Edit </Button>
-          <Button size="sm"> Delete </Button>
+          <Button variant="filled" color={theme.colors.dark[3]} size="xs" radius="xl" >  Edit </Button>
+          <Button  variant="filled" color={theme.colors.dark[3]} size="xs" radius="xl" > Delete </Button>
         </Group>
       </Container>
       <CommentsModule eventId={_id} />
