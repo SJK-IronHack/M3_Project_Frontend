@@ -1,42 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import { Carousel } from '@mantine/carousel';
 import EventCard from './EventCard';
+import { useMantineTheme, Button } from '@mantine/core';
+
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 function EventListing({ events }) {
-  const [eventList, setEventList] = useState([]);
+    const theme = useMantineTheme();
 
-  const fetchEvents = async () => {
-    try {
-      const response = await fetch(`${API_URL}/api/events`);
-      if (response.ok) {
-        const eventData = await response.json();
-        console.log(eventData);
-        setEventList(eventData);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    const [eventList, setEventList] = useState([]);
 
-  useEffect(() => {
-    fetchEvents();
-  }, []);
+    const fetchEvents = async () => {
+        try {
+            const response = await fetch(`${API_URL}/api/events`);
+            if (response.ok) {
+                const eventData = await response.json();
+                console.log(eventData);
+                setEventList(eventData);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
-  return (
-    <Carousel
-      className='EventListing'
-      orientation="horisontal" 
-      slideSize="70%" height={200}  align="start" slideGap="xs" loop dragFree withControls={false}
-    >
-      {eventList.map((event) => (
-        <Carousel.Slide>
-            <EventCard event={event} key={event._eventId} />
-        </Carousel.Slide>
-      ))}
-    </Carousel>
-  );
+    useEffect(() => {
+        fetchEvents();
+    }, []);
+
+    return (
+        <Carousel
+        
+
+            className='EventListing'
+            orientation="horizontal"
+            slideSize={{ base: '50%%', sm: '30%', md: '33.333333%' }}
+             align="start" slideGap="xs" loop dragFree withControls={false}
+        >
+            {eventList.map((event) => (
+                <Carousel.Slide>
+                    <EventCard event={event} key={event._eventId} />
+                </Carousel.Slide>
+            ))}
+        </Carousel>
+    );
 }
 
 export default EventListing;

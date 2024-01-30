@@ -17,13 +17,13 @@ export const EventCard = ({ event }) => {
   const { _id, title, organiser, date, location, price, description, image } =
     event;
   return (
-    <Card sshadow="sm" padding="lg" radius="md" withBorder>
+    <Card sshadow="sm" padding="lg" radius="md" withBorder width='500'>
       <Card.Section>
         <Image
           src="https://picsum.photos/300"
           alt={title}
-          height={160}
-        // image={image}
+          // height={160}
+          width={250}
         />
       </Card.Section>
       <Group justify="space-between" mt="md" mb="xs">

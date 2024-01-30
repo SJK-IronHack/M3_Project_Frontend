@@ -1,6 +1,6 @@
 // editEvent.js
 
-export const editEvent = (eventId, eventData) => {
+ const editEvent = (eventId, eventData) => {
     const eventEndpoint = `${import.meta.env.VITE_API_URL}/api/events/${eventId}`;
     const API_URL = import.meta.env.VITE_API_URL;
 
@@ -15,3 +15,4 @@ export const editEvent = (eventId, eventData) => {
     }).then((response) => response.json());
   };
   
+  export default editEvent;
