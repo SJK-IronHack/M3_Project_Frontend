@@ -14,16 +14,8 @@ export default function HomePage() {
 
   return (
     <>
-      <EventListing />
-      {/* <Box sx={{ paddingX: 8, paddingY: 16 }}>
-        <Grid container spacing={8}>
-          {events.map((event) => (
-            <Grid item key={event._id}>
-              <EventCard event={event} />
-            </Grid>
-          ))}
-        </Grid>
-          </Box> */}
+      <EventListing slideSize="70%" height={200} align="start" slideGap="xs" loop dragFree withControls={false}/>
+      
     </>
   );
 }

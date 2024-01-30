@@ -1,56 +1,50 @@
 import PropTypes from "prop-types";
 import {
-  Button,
   Card,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Typography,
-  Box,
-} from "@mui/material";
-import EditIcon from "@mui/icons-material/Edit";
+  Image,
+  Title,
+  Text,
+  Container,
+  Button,
+  Group,
+} from '@mantine/core';
 import CommentsModule from "./EventComments";
+import { useNavigate } from "react-router-dom";
+const navigate = useNavigate();
+
 
 export const EventCard = ({ event }) => {
   const { _id, title, organiser, date, location, price, description, image } =
     event;
   return (
-    <Card raised sx={{ width: 400 }}>
-      <CardMedia
-        component="img"
-        alt={title}
-        height="240"
-        image="https://picsum.photos/300"
+    <Card sshadow="sm" padding="lg" radius="md" withBorder>
+      <Card.Section>
+        <Image
+          src="https://picsum.photos/300"
+          alt={title}
+          height={160}
         // image={image}
-      />
-      <CardContent>
-        <Typography variant="h5" component="div">
-          {title}
-        </Typography>
-        <Box sx={{ marginY: 2 }}>
-          <Typography variant="body2" color="text.secondary">
-            {date}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {location}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {organiser}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {price}
-          </Typography>
-        </Box>
-        <Typography variant="body2" color="text.secondary">
-          {description}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small" startIcon={<EditIcon />}>
-          Edit
-        </Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
+        />
+      </Card.Section>
+      <Group justify="space-between" mt="md" mb="xs">
+
+        <Text order={2}>{title}</Text>
+        <Text>{date}</Text>
+        <Text>{price}</Text>
+      </Group>
+      <Container padding={2}>
+        <Group spacing={2} style={{ marginY: 2 }}>
+          <Text>{location}</Text>
+          <Text>{organiser}</Text>
+        </Group>
+        <Text>{description}</Text>
+      </Container>
+      <Container padding={2}>
+        <Group position="apart">
+          <Button size="sm" onClick={() => navigate(`/editevent/${eventId}`)}>  Edit </Button>
+          <Button size="sm"> Delete </Button>
+        </Group>
+      </Container>
       <CommentsModule eventId={_id} />
     </Card>
   );
@@ -68,5 +62,6 @@ EventCard.propTypes = {
     image: PropTypes.string.isRequired,
   }).isRequired,
 };
+
 
 export default EventCard;

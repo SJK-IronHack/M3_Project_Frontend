@@ -9,49 +9,33 @@ import "./App.css";
 import Header from "./components/Header";
 import PrivateRoute from "./components/PrivateRoute";
 
+import '@mantine/core/styles.css';
+import { MantineProvider } from '@mantine/core';
+
 import { createTheme, ThemeProvider, CssBaseline, Button } from "@mui/material";
+import EditEventPage from "./pages/EditEventPage";
 
 function App() {
 
-  //STYLES MUI
+  //STYLES MANTINE
   const darkTheme = createTheme({
-    palette: {
-      mode: "dark",
-      background: {
-        default: '#263140', 
-      },
+    colorScheme: 'dark',
+    colors: {
+      'deep-blue': '#263140',
+      'deep-blue-dark': '#394960',
+      'gray-blue': '#334155',
+      'gray-blue-dark': '#2A3646',
+      'gray-blue-light': '#252E3C',
     },
-    components: {
-      MuiButton: {
-        styleOverrides: {
-          root: {
-            borderRadius: '32px',
-            borderRadius: '32px',
-            boxShadow: '-2px -2px 2px 0px #394960, 2px 2px 3px 0px #263140',
-         
-          },
-        },
-      },
-      MuiInput: {
-        styleOverrides: {
-          root: {
-            borderRadius: '999999995904px',
-            background: '#334155',
-            boxShadow: '-2px -2px 2px 0px #222C39, -1px -1px 0px 0px #334155, -2px -2px 2px 0px #2A3646 inset, -1px -1px 0px 0px #252E3C inset',
-          },
-        },
-      },
-    },
+    primaryColor: 'deep-blue',
+    fontFamily: 'Inter, sans-serif',
   });
-  const buttonStyle = {
-    borderRadius: '32px',
-  };
 
 
-//
+  //
   return (
-      <ThemeProvider theme={darkTheme}>
-    <div className="App">
+    <MantineProvider>
+      <div className="App">
         <Header />
         <Routes>
           <Route index element={<HomePage />} />
@@ -65,11 +49,13 @@ function App() {
               </PrivateRoute>
             }
           />
+
+          <Route path="editevent/:eventId" element={<EditEventPage />} />
           <Route path="/:userId" element={<UserProfilePage />} />
           <Route path="*" element={<Error404Page />} />
         </Routes>
-    </div>
-      </ThemeProvider>
+      </div>
+    </MantineProvider>
   );
 }
 

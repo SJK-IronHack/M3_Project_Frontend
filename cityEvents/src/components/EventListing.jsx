@@ -1,37 +1,42 @@
 import React, { useState, useEffect } from 'react';
+import { Carousel } from '@mantine/carousel';
 import EventCard from './EventCard';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-function EventListing({ events }) {  // Change the prop name to 'events'
-    const [eventList, setEventList] = useState([]);
+function EventListing({ events }) {
+  const [eventList, setEventList] = useState([]);
 
-    const fetchEvents = async () => {
-        try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/events`)
-            if (response.ok) {
-                const eventData = await response.json()
-                console.log(eventData);
-                setEventList(eventData)
-            }
-        } catch (error) {
-            console.log(error);
-        }
+  const fetchEvents = async () => {
+    try {
+      const response = await fetch(`${API_URL}/api/events`);
+      if (response.ok) {
+        const eventData = await response.json();
+        console.log(eventData);
+        setEventList(eventData);
+      }
+    } catch (error) {
+      console.log(error);
     }
+  };
 
-    useEffect(() => {
-        fetchEvents()
-    }, [])
+  useEffect(() => {
+    fetchEvents();
+  }, []);
 
-    return (
-        <div className='EventListing'>
-            {
-                eventList.map((event) => (
-                    <EventCard event={event} key={event._eventId} />
-                ))
-            }
-        </div>
-    )
+  return (
+    <Carousel
+      className='EventListing'
+      orientation="horisontal" 
+      slideSize="70%" height={200}  align="start" slideGap="xs" loop dragFree withControls={false}
+    >
+      {eventList.map((event) => (
+        <Carousel.Slide>
+            <EventCard event={event} key={event._eventId} />
+        </Carousel.Slide>
+      ))}
+    </Carousel>
+  );
 }
 
 export default EventListing;
