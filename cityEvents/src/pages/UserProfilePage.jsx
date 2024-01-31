@@ -8,10 +8,29 @@ const API_URL = import.meta.env.VITE_API_URL;
 function UserProfilePage() {
   const [userProfile, setUserProfile] = useState(null);
   const [userEvents, setUserEvents] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const { user } = useContext(AuthContext);
+  const { userId, isLoading } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState(undefined);
 
+
+  useEffect(()=> {
+const fetchUser = async() => {
+  try {
+    if(userId){
+      const authToken = localStorage.getItem('authToken')
+      const response = await fetch(`${API_URL}/api/users/user/${userId}`, {    headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${authToken}`,
+      },});
+      const parse = await response.json();
+      console.log(parse);
+      setUserProfile(parse)
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+fetchUser();
+  },[userId])
   // useEffect(() => {
   //   const getUserProfile = async () => {
   //     try {
@@ -55,17 +74,17 @@ function UserProfilePage() {
   //   getUserProfile();
   //   getUserEvents();
   // }, [user._id]);
-
+console.log(userId);
   if (errorMessage) return <div>{errorMessage}</div>;
 
-  if (loading) return <div>Loading...</div>;
+  if (!userProfile) return <div>Loading...</div>;
 
   return (
     <div>
       <div>
         {userProfile && (
           <>
-            <h1>{userProfile.name}</h1>
+            <h1>{userProfile.username}</h1>
             <div>
               <p>
                 <strong>Email:</strong> {userProfile.email}

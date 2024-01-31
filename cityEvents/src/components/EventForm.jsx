@@ -1,5 +1,5 @@
-import { Input, Textarea, NumberInput, FileInput, Container, useMantineTheme } from '@mantine/core';
-import { DatePicker, DateInput } from '@mantine/dates';
+import { Input, Textarea, NumberInput, FileInput, Container, useMantineTheme, TextInput } from '@mantine/core';
+import { DatePicker, DateInput, DatePickerInput } from '@mantine/dates';
 
 
 
@@ -16,8 +16,8 @@ const EventForm = ({ handleChange, event }) => {
   return (
     <Container size="xs" mt="xxl">
       <div>
-        <Input
-          color={theme.colors.dark[3]}
+        <TextInput
+          c={theme.colors.dark[3]}
           tt="uppercase"
           size="xs" radius="xl"
           id="title"
@@ -31,7 +31,9 @@ const EventForm = ({ handleChange, event }) => {
         />
       </div>
       <div>
-        <Input
+        <TextInput
+          c={theme.colors.dark[3]}
+
           tt="uppercase"
           size="xs" radius="xl"
           id="organiser"
@@ -45,18 +47,17 @@ const EventForm = ({ handleChange, event }) => {
       </div>
       <div>
         <DateInput
-          color={theme.colors.light[1]}
-          tt="uppercase"
-          size="xs" radius="xl"
-          valueFormat="DD/MM/YYYY HH:mm:ss"
+          id="date"
+          name="date"
           label="Date"
-          placeholder="Date input"
           value={event.date}
           onChange={(date) => handleChange('date', date)}
         />
       </div>
       <div>
-        <Input
+        <TextInput
+          c={theme.colors.dark[3]}
+
           tt="uppercase"
           size="xs" radius="xl"
           id="location"
@@ -69,6 +70,7 @@ const EventForm = ({ handleChange, event }) => {
       </div>
       <div>
         <NumberInput
+          c={theme.colors.dark[3]}
           tt="uppercase"
           size="xs" radius="xl"
           id="price"
@@ -80,6 +82,7 @@ const EventForm = ({ handleChange, event }) => {
       </div>
       <div>
         <Textarea
+          c={theme.colors.dark[3]}
           tt="uppercase"
           size="xs" radius="xl"
           id="description"
@@ -92,6 +95,7 @@ const EventForm = ({ handleChange, event }) => {
       </div>
       <div>
         <FileInput
+          c={theme.colors.dark[3]}
           tt="uppercase"
           size="xs" radius="xl"
           id="image"

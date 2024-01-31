@@ -4,7 +4,7 @@ import { createEvent } from "../api/saveEvent";
 import { useState, useEffect, useContext } from "react";
 import { fetchEvents } from "../api/fetchEvents";
 import { AuthContext } from "../contexts/AuthContext";
-import { Button, Container, Flex, useMantineTheme } from '@mantine/core'
+import { Button, Container, Flex, useMantineTheme, Text } from '@mantine/core'
 
 const AddEventPage = () => {
 
@@ -67,7 +67,8 @@ const AddEventPage = () => {
   }, [token]);
 
   return (
-    <Container sx={{ paddingX: 24, paddingY: 4 }}>
+    <Container sx={{ paddingX: 24, paddingY: 4 }} size="sm">
+      <Text  size="xl">Login</Text>
 
       <form onSubmit={handleSubmit} name="create-event">
         <EventForm handleChange={handleChange} event={event} />

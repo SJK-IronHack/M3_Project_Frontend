@@ -44,7 +44,6 @@ const EditEventPage = () => {
         <EventForm handleChange={handleChange} event={event} />
         <Button
           style={{ marginTop: 8 }}
-          fullWidth
           variant="filled"
           type="submit"
         >
