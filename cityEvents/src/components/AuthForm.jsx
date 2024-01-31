@@ -2,10 +2,19 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 
-import { Input } from '@mantine/core';
+import { Button, Container, Input, useMantineTheme } from '@mantine/core';
 
 
 const AuthForm = ({ isLogin = false }) => {
+
+  // =Mantine theme ->
+  const theme = useMantineTheme();
+  const cardStyles = {
+    backgroundColor: theme.colors.dark[0],
+    color: theme.colorScheme === "dark" ? theme.white : theme.black,
+  };
+
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -53,36 +62,42 @@ const AuthForm = ({ isLogin = false }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {isLogin ? null : ( // Render the username field only for signup
+    <Container>
+      <form onSubmit={handleSubmit}>
+        {isLogin ? null : ( // Render the username field only for signup
+          <label>
+            Username
+            <Input
+              type="text"
+              required
+              value={username}
+              onChange={handleUsername}
+            />
+          </label>
+        )}
         <label>
-          Username
+          Email
           <Input
-            type="text"
+            tt="uppercase"
+            size="xs" radius="xl"
+            type="email"
+            required value={email}
+            onChange={handleEmail} />
+        </label>
+        <label>
+          Password
+          <Input
+            tt="uppercase"
+            size="xs" radius="xl"
+            type="password"
             required
-            value={username}
-            onChange={handleUsername}
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
           />
         </label>
-      )}
-      <label>
-        Email
-        <Input 
-        type="email" 
-        required value={email} 
-        onChange={handleEmail} />
-      </label>
-      <label>
-        Password
-        <Input
-          type="password"
-          required
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-      </label>
-      <button type="submit">{isLogin ? "Login" : "Signup"}</button>
-    </form>
+        <Button mt="xl" variant="filled" bg={theme.colors.dark[1]} size="xs" radius="xl" type="submit">{isLogin ? "Login" : "Signup"}</Button>
+      </form>
+    </Container>
   );
 };
 

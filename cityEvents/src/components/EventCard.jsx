@@ -8,6 +8,7 @@ import {
   Container,
   Button,
   Group,
+  Flex,
   useMantineTheme,
   Pill,
 } from "@mantine/core";
@@ -103,25 +104,35 @@ export const EventCard = ({ event, fetchEvents }) => {
           width={250}
         />
       </Card.Section>
-      <Group justify="space-between" mt="md" mb="xs">
-        <Text order={2}>{title}</Text>
-        <Text>{date}</Text>
-        <Text>{price}</Text>
-      </Group>
-      <Container padding={2}>
-        <Group spacing={2} style={{ marginY: 2 }}>
-          <Text> Where: {location}</Text>
-          <Text>{organiser}</Text>
-        </Group>
+
+      <Flex justify="space-between" direction="column" mt="md" mb="xs">
+        <Text order={2} size="md">{title}</Text>
+        <Flex direction="row"
+          gap="md"
+          justify="flex-end">
+          <Pill bg={theme.colors.dark[4]} >{date}</Pill>
+          <Pill bg={theme.colors.dark[4]} >{price}</Pill>
+        </Flex>
+      </Flex>
+      <Group px={0} >
+        <Flex
+          gap="md"
+          justify="flex-end"
+          direction="row"
+          wrap="wrap"
+          mt="xl">
+          <Text tt="uppercase" size="xs"> Where: {location}</Text>
+          <Text tt="uppercase" size="xs">Organiser: {organiser}</Text>
+        </Flex>
         <Text>{description}</Text>
-      </Container>
-      <Container padding={2}>
-        <Group position="apart">
-          <Button size="sm" onClick={handleEditClick}>
+      </Group>
+      <Flex padding={2}  align="flex-end" mt='md'>
+        <Group >
+          <Button variant="filled" bg={theme.colors.dark[1]} size="xs" radius="xl" onClick={handleEditClick}>
             Edit
           </Button>
           <Button
-            size="sm"
+            variant="filled" bg={theme.colors.dark[1]} size="xs" radius="xl"
             onClick={(e) => {
               handleDelete(e, event._id);
             }}
@@ -129,7 +140,7 @@ export const EventCard = ({ event, fetchEvents }) => {
             Delete
           </Button>
         </Group>
-      </Container>
+      </Flex>
       <CommentsModule eventId={_id} />
     </Card>
   );

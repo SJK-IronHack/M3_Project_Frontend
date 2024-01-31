@@ -1,11 +1,12 @@
+import { Container, Text } from "@mantine/core";
 import AuthForm from "../components/AuthForm";
 
 const LoginPage = () => {
   return (
-    <div>
-      <p>forlogin</p>
+    <Container size="xs">
+      <Text  size="xl">Login</Text>
       <AuthForm isLogin />
-    </div>
+    </Container>
   );
 };
 

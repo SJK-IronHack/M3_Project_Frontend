@@ -4,9 +4,18 @@ import { createEvent } from "../api/saveEvent";
 import { useState, useEffect, useContext } from "react";
 import { fetchEvents } from "../api/fetchEvents";
 import { AuthContext } from "../contexts/AuthContext";
-import { Button } from '@mantine/core'
+import { Button, Container, Flex, useMantineTheme } from '@mantine/core'
 
 const AddEventPage = () => {
+
+  // Mantine theme ->
+  const theme = useMantineTheme();
+  const cardStyles = {
+    backgroundColor: theme.colors.dark[0],
+    color: theme.colorScheme === "dark" ? theme.white : theme.black,
+  };
+//
+
   const [events, setEvents] = useState([]);
   const [event, setEvent] = useState({
     title: "",
@@ -58,14 +67,15 @@ const AddEventPage = () => {
   }, [token]);
 
   return (
-    <div sx={{ paddingX: 24, paddingY: 4 }}>
+    <Container sx={{ paddingX: 24, paddingY: 4 }}>
+
       <form onSubmit={handleSubmit} name="create-event">
         <EventForm handleChange={handleChange} event={event} />
-        <Button variant="contained" type="submit" sx={{ marginTop: 8 }}>
+        <Button  variant="filled" bg={theme.colors.dark[1]} size="xs" radius="xl" type="submit" sx={{ marginTop: 8 }}>
           Create
         </Button>
       </form>
-    </div>
+    </Container>
   );
 };
 
