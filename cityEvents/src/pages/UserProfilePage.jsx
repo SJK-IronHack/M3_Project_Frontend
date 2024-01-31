@@ -46,26 +46,27 @@ function UserProfilePage() {
   return (
     <Container size="xs" gap="md" mt="xl">
       <Text size="xl">User page</Text>
-        {userProfile && (
-          <Paper
-            style={cardStyles}
-            color={theme.colors.dark[0]}
-            sshadow="xl"
-            padding="lg"
-            radius="xl"
-            width="500"
-            height="700"
-            shadow="md">
-
-            <Text>Name: {userProfile.username}</Text>
-            <div>
-              <Text>
-                Email: {userProfile.email}
-              </Text>
-            </div>
-          </Paper>
-        )}
-              <Text size="xl">Events Created by {userProfile.name}</Text>
+      {userProfile && (
+        <Paper
+          style={cardStyles}
+          color={theme.colors.dark[0]}
+          sshadow="xl"
+          padding="lg"
+          radius="xl"
+          width="500"
+          height="700"
+          shadow="md"
+          p="xl"
+        >
+          <Text>Name: {userProfile.username}</Text>
+          <div>
+            <Text>
+              Email: {userProfile.email}
+            </Text>
+          </div>
+        </Paper>
+      )}
+      <Text size="xl">Events Created by {userProfile.name}</Text>
 
       <Card style={cardStyles}
         color={theme.colors.dark[0]}

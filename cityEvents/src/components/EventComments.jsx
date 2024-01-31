@@ -54,36 +54,42 @@ const CommentsModule = ({ eventId }) => {
   {
     /*  console.log(comments); */
   }
-  const handleCommentSubmit = (event) => {
-    event.preventDefault();
-    const createComment = (eventId, authToken) => {
-      const commentsEndpoint = `${import.meta.env.VITE_API_URL}/api/comments/${eventId}`;
-
-      return fetch(commentsEndpoint, {
+  const handleCommentSubmit = async (e) => {
+    e.preventDefault();
+  console.log(e.target.elements[0].value);
+    try {
+      const commentText = e.target.elements[0].value; // Assuming you have an input with name="commentText"
+      
+      if (!commentText) {
+        // Handle case where comment text is empty
+        return;
+      }
+  
+      const commentsEndpoint = `${API_URL}/api/comments/${eventId}`;
+  
+      const response = await fetch(commentsEndpoint, {
         method: "POST",
         mode: "cors",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${authToken}`,
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(eventId),
-      }).then((response) => response.json());
-    };
-    createComment(event, token) // Pass the authentication token to createEvent
-      .then((response) => {
-        console.log("Comment creation response:", response);
-        // Fetch events after creating a new event
-        return fetchComments(token); // Pass the authentication token to fetchEvents
-      })
-      .then((_events) => {
-        console.log("Fetched events after creation:", _events);
-        setComments(_events);
-        navigate("/");
-        alert("Event added");
-      })
-      .catch((error) => {
-        console.error("Error while creating/fetching events:", error);
+        body: JSON.stringify({ description: commentText }), // Assuming your comment model has a "description" field
       });
+  
+      if (response.ok) {
+        console.log("Comment creation response:", response);
+        // Fetch comments after creating a new comment
+        await fetchComments();
+        // Clear the input field after successful submission
+        e.target.elements.commentText.value = "";
+      } else {
+        // Handle error response
+        console.error("Error while creating comment:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error while creating/fetching comments:", error);
+    }
   };
 
   return (
@@ -98,7 +104,7 @@ const CommentsModule = ({ eventId }) => {
         <Flex direction="row" gap="md" >
           <form onSubmit={handleCommentSubmit}>
             <Input size="xs" radius="xl" placeholder="Write a comment" />
-            <Button variant="filled" size="xs" radius="xl" bg={theme.colors.dark[1]}>Post</Button>
+            <Button variant="filled" size="xs" type="submit" radius="xl" bg={theme.colors.dark[1]}>Post</Button>
           </form>
 
         </Flex>
