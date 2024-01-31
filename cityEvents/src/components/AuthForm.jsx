@@ -68,6 +68,8 @@ const AuthForm = ({ isLogin = false }) => {
           <label>
             Username
             <Input
+              tt="uppercase"
+              size="xs" radius="xl"
               type="text"
               required
               value={username}

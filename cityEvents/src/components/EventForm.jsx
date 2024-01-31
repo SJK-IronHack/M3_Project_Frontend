@@ -15,6 +15,7 @@ const EventForm = ({ handleChange, event }) => {
 
   return (
     <Container size="xs" mt="xxl">
+      {/* form is missing??? */}
       <div>
         <TextInput
           c={theme.colors.dark[3]}
