@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
-
 import { AuthContext } from "../contexts/AuthContext";
+import { Container } from "@mantine/core";
 
 // Import the string from the .env with URL of the API/server - http://localhost:5005
 const API_URL = import.meta.env.VITE_API_URL;
@@ -31,57 +31,15 @@ const fetchUser = async() => {
 }
 fetchUser();
   },[userId])
-  // useEffect(() => {
-  //   const getUserProfile = async () => {
-  //     try {
-  //       const storedToken = localStorage.getItem("authToken");
 
-  //       if (storedToken) {
-  //         const userProfileResponse = await axios.get(
-  //           `${API_URL}/api/user/${user._id}`,
-  //           { headers: { Authorization: `Bearer ${storedToken}` } }
-  //         );
-
-  //         setUserProfile(userProfileResponse.data);
-  //       } else {
-  //         setErrorMessage("User not logged in");
-  //       }
-  //     } catch (error) {
-  //       const errorDescription = error.response.data.message;
-  //       setErrorMessage(errorDescription);
-  //     }
-  //   };
-
-  //   const getUserEvents = async () => {
-  //     try {
-  //       const storedToken = localStorage.getItem("authToken");
-
-  //       if (storedToken) {
-  //         const userEventsResponse = await axios.get(
-  //           `${API_URL}/api/events/${user._id}`,
-  //           { headers: { Authorization: `Bearer ${storedToken}` } }
-  //         );
-
-  //         setUserEvents(userEventsResponse.data);
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching user events:", error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   getUserProfile();
-  //   getUserEvents();
-  // }, [user._id]);
 console.log(userId);
   if (errorMessage) return <div>{errorMessage}</div>;
 
   if (!userProfile) return <div>Loading...</div>;
 
   return (
-    <div>
-      <div>
+    <Container size="xs">
+            <div>
         {userProfile && (
           <>
             <h1>{userProfile.username}</h1>
@@ -101,7 +59,7 @@ console.log(userId);
           ))}
         </ul>
       </div>
-    </div>
+    </Container>
   );
 }
 

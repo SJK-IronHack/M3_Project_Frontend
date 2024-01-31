@@ -27,6 +27,7 @@ export default function Header() {
         </Title>
       </Group>
         <Group align="right">
+          <Button variant="filled" bg={theme.colors.dark[1]} size="xs" radius="xl" onClick={() => navigate('/user')}>User profile</Button>
           <Button variant="filled" bg={theme.colors.dark[1]} size="xs" radius="xl" onClick={() => navigate('/addevent')}>Create Event</Button>
           <Button variant="filled" bg={theme.colors.dark[1]} size="xs" radius="xl" onClick={() => navigate('/login')}>Login</Button>
           <Button variant="filled" bg={theme.colors.dark[1]} size="xs" radius="xl" onClick={() => navigate('/signup')}>Signup</Button>

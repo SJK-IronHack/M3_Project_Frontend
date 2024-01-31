@@ -29,7 +29,6 @@ function App() {
           }
         />
         <Route path="editevent/:eventId" element={<EditEventPage />} />
-        {/* <Route path="/:userId" element={<UserProfilePage />} /> */}
         <Route path="/user" element={<UserProfilePage />} />
         <Route path="*" element={<Error404Page />} />
       </Routes>

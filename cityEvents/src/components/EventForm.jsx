@@ -46,7 +46,7 @@ const EventForm = ({ handleChange, event }) => {
         />
       </div>
       <div>
-        <DateInput
+        <TextInput
           id="date"
           name="date"
           label="Date"
