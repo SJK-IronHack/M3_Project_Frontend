@@ -1,10 +1,12 @@
+import { Container } from "@mantine/core";
 import image from "../assets/error-404-.avif";
 
 const Error404Page = () => {
   return (
-    <div>
+    <Container>
       <img src={image} alt="No page found" />
-    </div>
+    </Container>
+  
   );
 };
 
