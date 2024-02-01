@@ -8,13 +8,13 @@ function UserProfilePage() {
   const [userEvents, setUserEvents] = useState([]);
   const { userId, isLoading } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState(undefined);
-  // Mantine theme ->
+  //Mantine theme ->
   const theme = useMantineTheme();
   const cardStyles = {
     backgroundColor: theme.colors.dark[0],
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
   };
-  //
+  //Mantine theme ->
 
 
   useEffect(() => {
@@ -44,13 +44,13 @@ function UserProfilePage() {
 
 
   return (
-    <Container sx={{ paddingX: 24, paddingY: 4 }} size="sm" c={theme.colors.dark[4]}>
-    <Text  size="xl">User profile</Text>
+    <Container size="sm" c={theme.colors.dark[4]}>
+      <Container>
+      <Text size="xl">User page</Text>
       {userProfile && (
-        <Paper
+        <Card
           style={cardStyles}
-          color={theme.colors.dark[0]}
-          sshadow="xl"
+          bg={theme.colors.dark[5]}
           padding="lg"
           radius="xl"
           width="500"
@@ -64,24 +64,27 @@ function UserProfilePage() {
               Email: {userProfile.email}
             </Text>
           </div>
-        </Paper>
+        </Card>
       )}
-      <Text size="xl">Events Created by {userProfile.name}</Text>
+      <Text size="xl">Events Created by {userProfile.username}</Text>
 
-      <Card style={cardStyles}
-        color={theme.colors.dark[0]}
-        sshadow="xl"
+      <Card
+        style={cardStyles}
+        bg={theme.colors.dark[5]}
+        shadow="md"
         padding="lg"
         radius="xl"
         width="500"
         height="700"
-        shadow="md">
+        p="xl"
+      >
         <ul>
           {userEvents.map((event) => (
             <Card key={event._id}>{event.name}</Card>
           ))}
         </ul>
       </Card>
+      </Container>
     </Container>
   );
 }

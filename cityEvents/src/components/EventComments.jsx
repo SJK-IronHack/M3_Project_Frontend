@@ -29,7 +29,8 @@ const CommentsModule = ({ eventId }) => {
     backgroundColor: theme.colors.dark[0],
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
   };
-  //
+  //Mantine theme ->
+
   const fetchComments = async () => {
     try {
       const response = await // HOW TO FETCH COMMENST FROM EVENTID URL ????
@@ -109,7 +110,7 @@ const CommentsModule = ({ eventId }) => {
       justify="flex-start"
       align="flex-start"
       direction="row"
-      wrap="wrap" >
+      wrap="nowrap" >
             <Input size="xs" radius="xl" placeholder="Write a comment" />
             <Button variant="filled" size="xs" type="submit" radius="xl" bg={theme.colors.dark[1]}>Post</Button>
         </Flex>

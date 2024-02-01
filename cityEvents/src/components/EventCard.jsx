@@ -89,7 +89,6 @@ export const EventCard = ({ event, fetchEvents }) => {
     <Card
       style={cardStyles}
       color={theme.colors.dark[0]}
-      sshadow="xl"
       padding="lg"
       radius="xl"
       width="500"
