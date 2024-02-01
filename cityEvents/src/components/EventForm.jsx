@@ -1,10 +1,15 @@
-import { Input, Textarea, NumberInput, FileInput, Container, useMantineTheme, TextInput } from '@mantine/core';
-import { DateInput, DatePicker } from '@mantine/dates';
-
-
+import {
+  Input,
+  Textarea,
+  NumberInput,
+  FileInput,
+  Container,
+  useMantineTheme,
+  TextInput,
+} from "@mantine/core";
+import { DateInput, DatePicker } from "@mantine/dates";
 
 const EventForm = ({ handleChange, event }) => {
-
   // Mantine theme ->
   const theme = useMantineTheme();
   const cardStyles = {
@@ -15,35 +20,33 @@ const EventForm = ({ handleChange, event }) => {
 
   return (
     <Container size="xs" mt="xxl">
-      {/* form is missing??? */}
       <div>
         <TextInput
           c={theme.colors.dark[3]}
           tt="uppercase"
-          size="xs" radius="xl"
+          size="xs"
+          radius="xl"
           id="title"
           name="title"
           label="Title"
           placeholder="Title"
-
           value={event.title}
-          onChange={(event) => handleChange('title', event.target.value)}
+          onChange={(event) => handleChange("title", event.target.value)}
           required
         />
       </div>
       <div>
         <TextInput
           c={theme.colors.dark[3]}
-
           tt="uppercase"
-          size="xs" radius="xl"
+          size="xs"
+          radius="xl"
           id="organiser"
           name="organiser"
           label="Organiser"
           placeholder="Organiser"
-
           value={event.organiser}
-          onChange={(event) => handleChange('organiser', event.target.value)}
+          onChange={(event) => handleChange("organiser", event.target.value)}
         />
       </div>
       <div>
@@ -52,63 +55,74 @@ const EventForm = ({ handleChange, event }) => {
           name="date"
           label="Date"
           value={event.date}
-          onChange={(date) => handleChange('date', date)}
+          onChange={(date) => handleChange("date", date)}
         />
       </div>
       <div>
         <TextInput
           c={theme.colors.dark[3]}
-
           tt="uppercase"
-          size="xs" radius="xl"
+          size="xs"
+          radius="xl"
           id="location"
           name="location"
           label="Location"
           placeholder="Location"
           value={event.location}
-          onChange={(event) => handleChange('location', event.target.value)}
+          onChange={(event) => handleChange("location", event.target.value)}
         />
       </div>
       <div>
         <NumberInput
           c={theme.colors.dark[3]}
           tt="uppercase"
-          size="xs" radius="xl"
+          size="xs"
+          radius="xl"
           id="price"
           name="price"
           label="Price"
           value={event.price}
-          onChange={(value) => handleChange('price', value)}
+          onChange={(value) => handleChange("price", value)}
         />
       </div>
       <div>
         <Textarea
           c={theme.colors.dark[3]}
           tt="uppercase"
-          size="xs" radius="xl"
+          size="xs"
+          radius="xl"
           id="description"
           name="description"
           label="Description"
           placeholder="Description"
           value={event.description}
-          onChange={(event) => handleChange('description', event.target.value)}
+          onChange={(event) => handleChange("description", event.target.value)}
         />
       </div>
       <div>
         <FileInput
           c={theme.colors.dark[3]}
           tt="uppercase"
-          size="xs" radius="xl"
+          size="xs"
+          radius="xl"
           id="image"
           name="image"
           label="Upload Image"
           placeholder="Upload Image"
-          value={event.image}
-          onChange={(event) => handleChange('image', event.target.value)}
+          onChange={(event) => handleChange("image", event.target.files[0])}
         />
-      </div>
-      <div>
-
+        <p>Or</p>
+        <TextInput
+          c={theme.colors.dark[3]}
+          tt="uppercase"
+          size="xs"
+          radius="xl"
+          id="imageLink"
+          name="imageLink"
+          label="Image Link"
+          placeholder="Image Link"
+          onChange={(event) => handleChange("image", event.target.value)}
+        />
       </div>
     </Container>
   );

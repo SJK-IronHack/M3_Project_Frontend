@@ -97,42 +97,61 @@ export const EventCard = ({ event, fetchEvents }) => {
       shadow="md"
     >
       <Card.Section>
-        <Image
-          src="https://picsum.photos/300"
-          alt={title}
-          // height={160}
-          width={250}
-        />
+        {console.log("event.image:", event.image)}
+        {console.log("event.image.link:", event.image.link)}
+        {console.log("event.image.data:", event.image.data)}
+        {event && event.image ? (
+          <Image
+            src={
+              event.image.data
+                ? `data:${event.image.contentType};base64,${event.image.data}`
+                : event.image.link
+            }
+            alt={title}
+            width={250}
+          />
+        ) : (
+          <div>No Image Available</div>
+        )}
       </Card.Section>
 
       <Flex justify="space-between" direction="column" mt="md" mb="xs">
-        <Text order={2} size="md">{title}</Text>
-        <Flex direction="row"
-          gap="md"
-          justify="flex-end">
-          <Pill bg={theme.colors.dark[4]} >{date}</Pill>
-          <Pill bg={theme.colors.dark[4]} >{price}</Pill>
+        <Text order={2} size="md">
+          {title}
+        </Text>
+        <Flex direction="row" gap="md" justify="flex-end">
+          <Pill bg={theme.colors.dark[4]}>{date}</Pill>
+          <Pill bg={theme.colors.dark[4]}>{price}</Pill>
         </Flex>
       </Flex>
-      <Group px={0} >
-        <Flex
-          gap="md"
-          justify="flex-end"
-          direction="row"
-          wrap="wrap"
-          mt="xl">
-          <Text tt="uppercase" size="xs"> Where: {location}</Text>
-          <Text tt="uppercase" size="xs">Organiser: {organiser}</Text>
+      <Group px={0}>
+        <Flex gap="md" justify="flex-end" direction="row" wrap="wrap" mt="xl">
+          <Text tt="uppercase" size="xs">
+            {" "}
+            Where: {location}
+          </Text>
+          <Text tt="uppercase" size="xs">
+            Organiser: {organiser}
+          </Text>
         </Flex>
         <Text>{description}</Text>
       </Group>
-      <Flex padding={2}  align="flex-end" mt='md'>
-        <Group >
-          <Button variant="filled" bg={theme.colors.dark[1]} size="xs" radius="xl" onClick={handleEditClick}>
+      <Flex padding={2} align="flex-end" mt="md">
+        <Group>
+          <Button
+            variant="filled"
+            bg={theme.colors.dark[1]}
+            size="xs"
+            radius="xl"
+            onClick={handleEditClick}
+          >
             Edit
           </Button>
           <Button
-            variant="filled" bg={theme.colors.dark[1]} size="xs" radius="xl"
+            variant="filled"
+            bg={theme.colors.dark[1]}
+            size="xs"
+            radius="xl"
             onClick={(e) => {
               handleDelete(e, event._id);
             }}
@@ -151,11 +170,18 @@ EventCard.propTypes = {
     _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     organiser: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired, // Change to PropTypes.string
+    date: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
+    image: PropTypes.oneOfType([
+      PropTypes.string, // Assuming it can be a direct link
+      PropTypes.shape({
+        data: PropTypes.string, // Assuming data is a string
+        contentType: PropTypes.string,
+        link: PropTypes.func, // Assuming link is a function
+      }),
+    ]),
   }).isRequired,
 };
 
