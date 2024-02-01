@@ -38,10 +38,11 @@ function UserProfilePage() {
     }
     fetchUser();
   }, [userId])
-  console.log(userId);
+  console.log("User Id:",userId);
   if (errorMessage) return <div>{errorMessage}</div>;
   if (!userProfile) return <div>Loading...</div>;
 
+  
 
   return (
     <Container size="sm" c={theme.colors.dark[4]}>

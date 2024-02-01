@@ -11,6 +11,9 @@ import {
   Flex,
   useMantineTheme,
   Pill,
+  ScrollArea,
+  Grid,
+  Box,
 } from "@mantine/core";
 import CommentsModule from "./EventComments";
 import { useNavigate } from "react-router-dom";
@@ -99,32 +102,36 @@ export const EventCard = ({ event, fetchEvents }) => {
         <Image
           src="https://picsum.photos/300"
           alt={title}
-          height={400}
+          size="xs"
         />
       </Card.Section>
 
       <Flex justify="space-between" direction="column" mt="md" mb="xs">
-        <Text order={2} size="md">{title}</Text>
+        <Text order={2} size="xl">{title}</Text>
         <Flex direction="row"
           gap="md"
-          justify="flex-end">
+          justify="flex-end"
+          mt="sm"  
+        >
           <Pill bg={theme.colors.dark[4]} >{date}</Pill>
           <Pill bg={theme.colors.dark[4]} >{price}</Pill>
         </Flex>
       </Flex>
       <Group px={0} >
         <Flex
-          gap="md"
-          justify="flex-end"
-          direction="row"
-          wrap="wrap"
-          mt="xl">
+          justify="space-between" 
+          mt="xs"
+          gap="xxl"
+          direction="column"
+        >
           <Text tt="uppercase" size="xs"> Where: {location}</Text>
           <Text tt="uppercase" size="xs">Organiser: {organiser}</Text>
         </Flex>
-        <Text>{description}</Text>
+        <Box w="auto" left>
+          <Text size="sm" lineClamp={5}>{description}</Text>
+        </Box>
       </Group>
-      <Flex padding={2}  align="flex-end" mt='md'>
+      <Flex padding={2} align="flex-end" mt='md'>
         <Group >
           <Button variant="filled" bg={theme.colors.dark[1]} size="xs" radius="xl" onClick={handleEditClick}>
             Edit
@@ -137,6 +144,7 @@ export const EventCard = ({ event, fetchEvents }) => {
           >
             Delete
           </Button>
+          <Button variant="filled" bg={theme.colors.dark[1]} size="xs" radius="xl">Event page</Button>
         </Group>
       </Flex>
       <CommentsModule eventId={_id} />

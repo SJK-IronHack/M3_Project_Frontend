@@ -111,8 +111,8 @@ const CommentsModule = ({ eventId }) => {
       align="flex-start"
       direction="row"
       wrap="nowrap" >
-            <Input size="xs" radius="xl" placeholder="Write a comment" />
-            <Button variant="filled" size="xs" type="submit" radius="xl" bg={theme.colors.dark[1]}>Post</Button>
+            <Input w="auto" size="xs" radius="xl" placeholder="Write a comment" />
+            <Button w="content" variant="filled" size="xs" type="submit" radius="xl" bg={theme.colors.dark[1]}>Post</Button>
         </Flex>
           </form>
 
