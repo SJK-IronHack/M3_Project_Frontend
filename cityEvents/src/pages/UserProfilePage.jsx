@@ -44,8 +44,8 @@ function UserProfilePage() {
 
 
   return (
-    <Container size="xs" gap="md" mt="xl">
-      <Text size="xl">User page</Text>
+    <Container sx={{ paddingX: 24, paddingY: 4 }} size="sm" c={theme.colors.dark[4]}>
+    <Text  size="xl">User profile</Text>
       {userProfile && (
         <Paper
           style={cardStyles}

@@ -67,8 +67,8 @@ const AddEventPage = () => {
   }, [token]);
 
   return (
-    <Container sx={{ paddingX: 24, paddingY: 4 }} size="sm">
-      <Text  size="xl">Login</Text>
+    <Container sx={{ paddingX: 24, paddingY: 4 }} size="sm" c={theme.colors.dark[4]}>
+      <Text  size="xl">Add event</Text>
 
       <form onSubmit={handleSubmit} name="create-event">
         <EventForm handleChange={handleChange} event={event} />

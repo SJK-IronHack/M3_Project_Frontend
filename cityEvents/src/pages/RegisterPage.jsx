@@ -1,14 +1,23 @@
 //import AuthForm from "../components/AuthForm";
 
+import { Container, Text, useMantineTheme } from "@mantine/core";
 import AuthForm from "../components/AuthForm";
 
 const SignUpPage = () => {
-  return (
-    <div>
-      <p>forsignup</p>
 
+    // Mantine theme ->
+    const theme = useMantineTheme();
+    const cardStyles = {
+      backgroundColor: theme.colors.dark[0],
+      color: theme.colorScheme === "dark" ? theme.light : theme.dark,
+    };
+    //
+
+  return (
+    <Container sx={{ paddingX: 24, paddingY: 4 }} size="sm" c={theme.colors.dark[4]}>
+    <Text  size="xl">Sign up</Text>
       <AuthForm />
-    </div>
+    </Container>
   );
 };
 

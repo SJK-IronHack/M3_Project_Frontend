@@ -24,6 +24,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               '#6783AB',
               '#7FA2D4',
               '#7FA2D4',
+              '#3F5169', //cards 5
               
             ],
             light: [

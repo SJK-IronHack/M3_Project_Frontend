@@ -12,6 +12,7 @@ import {
   Flex,
   useMantineTheme,
   Input,
+  Stack,
 } from "@mantine/core";
 
 // Passing Data of the comments to comment component
@@ -101,13 +102,19 @@ const CommentsModule = ({ eventId }) => {
         {comments.map((comment) => (
           <Text size="xs" truncate="end" key={comment._id}>{comment.description}</Text>
         ))}
-        <Flex direction="row" gap="md" >
           <form onSubmit={handleCommentSubmit}>
+        <Flex     
+        
+      gap="md"
+      justify="flex-start"
+      align="flex-start"
+      direction="row"
+      wrap="wrap" >
             <Input size="xs" radius="xl" placeholder="Write a comment" />
             <Button variant="filled" size="xs" type="submit" radius="xl" bg={theme.colors.dark[1]}>Post</Button>
+        </Flex>
           </form>
 
-        </Flex>
       </Flex>
 
     </Group>

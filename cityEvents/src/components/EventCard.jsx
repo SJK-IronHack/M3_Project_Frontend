@@ -27,7 +27,7 @@ export const EventCard = ({ event, fetchEvents }) => {
 
   const theme = useMantineTheme();
   const cardStyles = {
-    backgroundColor: theme.colors.dark[0],
+    backgroundColor: theme.colors.dark[5],
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
   };
 

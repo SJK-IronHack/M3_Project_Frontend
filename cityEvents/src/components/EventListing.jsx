@@ -15,7 +15,7 @@ function EventListing({ events }) {
       const response = await fetch(`${API_URL}/api/events`);
       if (response.ok) {
         const eventData = await response.json();
-        console.log(eventData);
+        console.log('event data:', eventData);
         setEventList(eventData);
       }
     } catch (error) {

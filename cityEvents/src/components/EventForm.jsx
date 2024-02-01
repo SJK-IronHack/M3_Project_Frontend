@@ -1,5 +1,5 @@
 import { Input, Textarea, NumberInput, FileInput, Container, useMantineTheme, TextInput } from '@mantine/core';
-import { DateInput, DatePicker } from '@mantine/dates';
+import { Calendar, DateInput, DatePicker } from '@mantine/dates';
 
 
 
@@ -14,7 +14,7 @@ const EventForm = ({ handleChange, event }) => {
   //
 
   return (
-    <Container size="xs" mt="xxl">
+    <Container>
       {/* form is missing??? */}
       <div>
         <TextInput
