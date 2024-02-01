@@ -83,7 +83,6 @@ function UserProfilePage() {
       >
         <ul>
           {userEvents.map((event) => (
-          console.log("Event tile:",event.title),
             <Card key={event._id}>{event.name}
             
             </Card>
