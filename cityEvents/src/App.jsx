@@ -6,7 +6,6 @@ import AddEventPage from "./pages/AddEventPage";
 import EditEventPage from "./pages/EditEventPage";
 import UserProfilePage from "./pages/UserProfilePage";
 import HomePage from "./pages/HomePage";
-import "./App.css";
 import Header from "./components/Header";
 import PrivateRoute from "./components/PrivateRoute";
 
