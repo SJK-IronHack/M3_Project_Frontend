@@ -1,5 +1,5 @@
 import { Input, Textarea, NumberInput, FileInput, Container, useMantineTheme, TextInput } from '@mantine/core';
-import { Calendar, DatePicker, DatePickerInput } from '@mantine/dates';
+import { Calendar, DatePicker, DatePickerInput, DateTimePicker, DatesProvider } from '@mantine/dates';
 import '@mantine/core/styles.css';
 import '@mantine/dates/styles.css';
 
@@ -49,14 +49,20 @@ const EventForm = ({ handleChange, event }) => {
         />
       </div>
       <div>
-        <DatePicker
+        <DatesProvider>
+          <DatePicker
+           label="Date"
+            value={event.date}
+            onChange={(date) => handleChange('date', date)} />
+        </DatesProvider>
+        {/* <DatePicker
           placeholder="Pick dates range"
           id="date"
           name="date"
           label="Date"
           value={event.date}
           onChange={(date) => handleChange('date', date)}
-        />
+        /> */}
       </div>
       <div>
         <TextInput

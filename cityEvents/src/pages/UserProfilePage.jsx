@@ -3,6 +3,8 @@ import { AuthContext } from "../contexts/AuthContext";
 import { Card, Container, Paper, Text, useMantineTheme } from "@mantine/core";
 // Import the string from the .env with URL of the API/server - http://localhost:5005
 const API_URL = import.meta.env.VITE_API_URL;
+
+
 function UserProfilePage() {
   const [userProfile, setUserProfile] = useState(null);
   const [userEvents, setUserEvents] = useState([]);
@@ -81,8 +83,11 @@ function UserProfilePage() {
       >
         <ul>
           {userEvents.map((event) => (
-            <Card key={event._id}>{event.name}</Card>
-          ))}
+          console.log("Event tile:",event.title),
+            <Card key={event._id}>{event.name}
+            
+            </Card>
+            ))}
         </ul>
       </Card>
       </Container>

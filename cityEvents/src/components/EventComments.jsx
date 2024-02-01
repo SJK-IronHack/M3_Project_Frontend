@@ -104,10 +104,9 @@ const CommentsModule = ({ eventId }) => {
           <Text size="xs" truncate="end" key={comment._id}>{comment.description}</Text>
         ))}
           <form onSubmit={handleCommentSubmit}>
-        <Flex     
-        
+        <Flex       
       gap="md"
-      justify="flex-start"
+      justify="flex-end"
       align="flex-start"
       direction="row"
       wrap="nowrap" >

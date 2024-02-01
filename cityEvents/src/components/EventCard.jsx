@@ -103,6 +103,9 @@ export const EventCard = ({ event, fetchEvents }) => {
           src="https://picsum.photos/300"
           alt={title}
           size="xs"
+          px="md"
+          pt="md"
+          radius="xl"
         />
       </Card.Section>
 
