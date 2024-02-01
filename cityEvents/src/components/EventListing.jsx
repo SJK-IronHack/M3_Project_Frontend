@@ -33,7 +33,7 @@ function EventListing({ events }) {
       orientation="horizontal"
       slideSize={{ base: "50%%", sm: "30%", md: "33.333333%" }}
       align="start"
-      slideGap="xs"
+      slideGap="md"
       loop
       dragFree
       withControls={false}
