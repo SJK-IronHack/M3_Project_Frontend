@@ -1,3 +1,12 @@
 .App {
 background-color: #334155;
 }
+@font-face {
+    font-family: 'Favorit';
+    src: url('./assets/Favorit-Regular.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    font-family:'Favorit';
+}

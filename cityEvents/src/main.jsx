@@ -7,6 +7,8 @@ import AuthContextProvider from "./contexts/AuthContext.jsx";
 import "@mantine/carousel/styles.css"
 import '@mantine/core/styles.css';
 import { MantineProvider } from '@mantine/core';
+import "./App.css";
+
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -15,6 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         withGlobalStyles
         withNormalizeCSS
         theme={{
+          fontFamily: 'Favorit',
           colorScheme: 'dark',
           colors: {
             // override dark colors to change them for all components
