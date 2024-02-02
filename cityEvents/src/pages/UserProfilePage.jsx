@@ -92,7 +92,7 @@ function UserProfilePage() {
 
 
   return (
-    <Container size="sm" c={theme.colors.dark[4]}>
+    <Container size="sm" c={theme.colors.dark[4]} >
       <Container>
         <Text size="xl">User page</Text>
         {userProfile && (

@@ -82,7 +82,10 @@ export const EventCard = ({ event, fetchEvents }) => {
       .then((response) => {
         if (response.status === 204) {
           fetchEvents();
+
         }
+        alert("Event deleted successfully")
+
       })
       .catch((error) => console.log(error));
   };
