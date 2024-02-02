@@ -34,6 +34,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               '#94A3B8',
               '#A0D1DE',
               '#A0B0DE',
+              '#FFFFFF',
 
             ]
           },
